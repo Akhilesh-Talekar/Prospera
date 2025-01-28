@@ -4,6 +4,7 @@ import axios, { all } from "axios";
 import { HomeContext } from "./HomeContext";
 import { BarGraph } from "./BarGraph";
 import { formatCurrency } from "../../constants";
+import { Link } from "react-router-dom";
 
 const Holdings = () => {
   const [holdings, setHoldings] = useState([]);
@@ -45,6 +46,8 @@ const Holdings = () => {
   };
   return (
     <>
+    {holdings.length > 0 ? (
+      <>
       <h3 className="section-title">
         Holdings <span className="holdings-count">{holdings.length}</span>
       </h3>
@@ -209,6 +212,17 @@ const Holdings = () => {
       >
         <BarGraph data={data} />
       </div>
+    </>
+    ) : (
+      <div className="no-orders">
+          <p>You dont have any holdings hover over stocks</p>
+
+          <Link to={"/"} className="btn">
+            Get started
+          </Link>
+      </div>
+    )}
+      
     </>
   );
 };

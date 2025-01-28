@@ -12,7 +12,7 @@ const Footer = () => {
               src="media/Images/logo.svg"
               alt="Logo"
             />
-            <p>© 2010 - 2024, Prospera Broking Ltd. All rights reserved.</p>
+            <p>© 2010 - 2024, Prospera Broking <br /> All rights reserved.</p>
             <div className="container d-flex flex-wrap fs-2 justify-content-center gap-3">
               <a href=""><i className="fa-brands fa-x-twitter text-muted"></i></a>
               <a href=""><i className="fa-brands fa-square-facebook text-muted"></i></a>
@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
         <div className="mt-5 text-muted p-3 p-lg-0" style={{ fontSize: "0.7rem" }}>
           <p>
-            Prospera Broking Ltd.: Member of NSE, BSE & MCX - SEBI Registration
+            Prospera Broking : Member of NSE, BSE & MCX - SEBI Registration
             no.: INZ000031633 CDSL/NSDL: Depository services through Prospera
             Broking Ltd. - SEBI Registration no.: IN-DP-431-2019 Commodity
             Trading through Prospera Commodities Pvt. Ltd. MCX: 46025; NSE-50001
