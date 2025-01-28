@@ -16,13 +16,7 @@ const Hero = () => {
 
       <div className="row mt-5 p-5 border-top text-muted" style={{lineHeight: "1.8"}}>
         <div
-          className="col-6"
-          style={{
-            paddingTop: "50px",
-            paddingBottom: "100px",
-            paddingLeft: "150px",
-            paddingRight: "25px",
-          }}
+          className="col-12 col-lg-6 paragraph"
         >
           <p>
             We kick-started operations on the 15th of August, 2010 with the goal
@@ -51,13 +45,7 @@ const Hero = () => {
           </p>
         </div>
         <div
-          className="col-6"
-          style={{
-            paddingTop: "50px",
-            paddingBottom: "50px",
-            paddingRight: "150px",
-            paddingLeft: "25px",
-          }}
+          className="col-12 col-lg-6 paragraph"
         >
           <p>
             In addition, we run a number of popular open online{" "}

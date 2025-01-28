@@ -4,7 +4,7 @@ const Stats = () => {
   return (
     <div className="container p-5">
       <div className="row p-5">
-        <div className="p-5 col-6">
+        <div className="p-5 col-12 col-lg-6">
           <h1 className="mb-5">
             <span style={{ color: "#0d6efd" }}>Trust</span> with confidence
           </h1>
@@ -33,17 +33,17 @@ const Stats = () => {
             goals.
           </p>
         </div>
-        <div className="p-5 col-6">
+        <div className="p-5 col-12 col-lg-6">
           <img
             src="media/Images/ecosystem.png"
             alt="Prospera Ecosystem"
             style={{ width: "100%", height: "auto" }}
           />
-          <div className="text-center">
-            <a href="" className="mx-5 text-decoration-none">
-              Explore our products <i class="fa-solid fa-arrow-right"></i>
+          <div className="text-center d-flex justify-content-between">
+            <a href="" className="mx-3 text-decoration-none">
+              Explore our products <i className="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="" className="text-decoration-none">Try demo <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="" className="mx-3 text-decoration-none">Try demo <i className="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

@@ -1,7 +1,9 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 const OpenAccount = () => {
   const buttonRef = React.useRef(null);
+  const navigate = useNavigate();
     async function onClick() {
       const confetti = (await import("canvas-confetti")).default;
       const rect = buttonRef.current.getBoundingClientRect();
@@ -13,6 +15,7 @@ const OpenAccount = () => {
         y: (rect.top + rect.height / 2) / window.innerHeight,
         },
       });
+      navigate("/sign-up");
     }
 
   return (

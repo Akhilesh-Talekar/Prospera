@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav
       className="navbar navbar-expand-lg border-bottom position-sticky top-0"
-      style={{ backgroundColor: "#FFF" }}
+      style={{ backgroundColor: "#FFF", zIndex: 1000 }}
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
@@ -40,7 +40,7 @@ const Navbar = () => {
                 const isActive = pathName === item.to;
 
                 return (
-                  <li className="nav-item">
+                  <li className="nav-item" key={item.name}>
                     <Link
                       className={clsx("nav-link rounded-5 px-3", {
                         "bg-primary text-white": isActive,

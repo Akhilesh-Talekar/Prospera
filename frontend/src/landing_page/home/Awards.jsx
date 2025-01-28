@@ -4,14 +4,14 @@ const Awards = () => {
   return (
     <div className="container mt-5">
       <div className="row">
-        <div className="col-6 p-5">
+        <div className="col-12 col-lg-6 d-flex d-lg-block justify-content-center p-5">
           <img
             src="media/Images/largestBroker.svg"
             alt="India's largest broker"
           />
         </div>
 
-        <div className="col-6 d-flex flex-column justify-content-center p-5">
+        <div className="col-12 col-lg-6 d-flex flex-column justify-content-center p-5 text-center text-lg-start">
           <h1>India's <span style={{color:"#0d6efd"}}>largest</span> broker</h1>
           <p>
             <span style={{ color: "#0d6efd", fontWeight: "750" }}>
@@ -23,7 +23,7 @@ const Awards = () => {
 
           <div className="row">
             <div className="col-6">
-              <ul>
+              <ul className="list-styling">
                 <li>Equity</li>
                 <li>Derivatives</li>
                 <li>Currency</li>
@@ -31,7 +31,7 @@ const Awards = () => {
               </ul>
             </div>
             <div className="col-6">
-              <ul>
+              <ul className="list-styling">
                 <li>Commodities</li>
                 <li>Mutual Funds</li>
                 <li>Stocks and IPOs</li>

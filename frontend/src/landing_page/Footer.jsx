@@ -3,28 +3,28 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="border-top mt-5" style={{ backgroundColor: "#FBFBFB" }}>
+    <footer className="border-top mt-5" style={{ backgroundColor: "#FBFBFB"}}>
       <div className="container mt-5">
         <div className="row">
-          <div className="col">
+          <div className="col-12 col-lg-3 text-center text-lg-start">
             <img
+            className="brand"
               src="media/Images/logo.svg"
               alt="Logo"
-              style={{ width: "70%" }}
             />
             <p>© 2010 - 2024, Prospera Broking Ltd. All rights reserved.</p>
             <div className="container d-flex flex-wrap fs-2 justify-content-center gap-3">
-              <a href=""><i class="fa-brands fa-x-twitter text-muted"></i></a>
-              <a href=""><i class="fa-brands fa-square-facebook text-muted"></i></a>
-              <a href=""><i class="fa-brands fa-instagram text-muted"></i></a>
-              <a href=""><i class="fa-brands fa-linkedin-in text-muted"></i></a>
-              <a href=""><i class="fa-brands fa-youtube text-muted"></i></a>
-              <a href=""><i class="fa-brands fa-whatsapp text-muted"></i></a>
-              <a href=""><i class="fa-brands fa-telegram text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-x-twitter text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-square-facebook text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-instagram text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-linkedin-in text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-youtube text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-whatsapp text-muted"></i></a>
+              <a href=""><i className="fa-brands fa-telegram text-muted"></i></a>
             </div>
             <hr />
           </div>
-          <div className="col">
+          <div className="col-12 col-md-6 col-lg-3 text-center text-lg-start">
             <p className="mb-0 fs-5">Company</p>
             <a href="" className="text-decoration-none text-muted">
               About
@@ -59,7 +59,7 @@ const Footer = () => {
             </a>
             <br />
           </div>
-          <div className="col">
+          <div className="col-12 col-md-6 col-lg-3 text-center text-lg-start mt-5 mt-md-0">
             <p className="mb-0 fs-5">Support</p>
             <a href="" className="text-decoration-none text-muted">
               Contact us
@@ -98,7 +98,7 @@ const Footer = () => {
             </a>
             <br />
           </div>
-          <div className="col">
+          <div className="col-12 col-lg-3 text-center text-lg-start mt-5 mt-lg-0">
             <p className="mb-0 fs-5">Account</p>
             <a href="" className="text-decoration-none text-muted">
               Open an account
@@ -114,7 +114,7 @@ const Footer = () => {
             <br />
           </div>
         </div>
-        <div className="mt-5 text-muted" style={{ fontSize: "0.7rem" }}>
+        <div className="mt-5 text-muted p-3 p-lg-0" style={{ fontSize: "0.7rem" }}>
           <p>
             Prospera Broking Ltd.: Member of NSE, BSE & MCX - SEBI Registration
             no.: INZ000031633 CDSL/NSDL: Depository services through Prospera
