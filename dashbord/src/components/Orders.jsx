@@ -2,13 +2,14 @@ import { React, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { HomeContext } from "./HomeContext";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const Orders = () => {
   let [orders, setOrders] = useState([]);
   let { id } = useContext(HomeContext);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/allOrders/${id}`).then((res) => {
+    axios.get(`${BACKEND_URL}/allOrders/${id}`).then((res) => {
       setOrders(res.data);
     });
   }, [id]);

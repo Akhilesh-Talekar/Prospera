@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FundContext } from "./FundContext";
 import { HomeContext } from "./HomeContext";
 import axios from "axios";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const FundWindow = () => {
   const [amount, setAmount] = useState("");
@@ -50,7 +51,7 @@ const FundWindow = () => {
       return;
     }
 
-    await axios.post("http://localhost:3000/marginUpdate", {
+    await axios.post(`${BACKEND_URL}/marginUpdate`, {
       userId: id,
       margin: parseInt(amount) + wallet,
     });

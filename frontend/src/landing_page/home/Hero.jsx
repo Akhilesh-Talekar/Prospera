@@ -37,8 +37,7 @@ const Hero = () => {
           <a href=""></a>
           <button
             ref={buttonRef}
-            className="btn btn-primary p-2"
-            style={{ width: "25%" }}
+            className="btn btn-primary p-2 herobtn"
             onClick={onClick}
           >
             Signup Now

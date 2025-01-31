@@ -4,6 +4,7 @@ import { styles } from "../../constants";
 import { GeneralContext } from "./GeneralContext";
 import axios from "axios";
 import { HomeContext } from "./HomeContext";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const BuyActionWindow = ({ options }) => {
   const [values, setValues] = useState({
@@ -26,7 +27,7 @@ const BuyActionWindow = ({ options }) => {
       return;
     }
 
-    await axios.post("http://localhost:3000/buyStock", {
+    await axios.post(`${BACKEND_URL}/buyStock`, {
       name: options.uId,
       qty: values.stockQuantity,
       price: values.stockPrice,
@@ -34,7 +35,7 @@ const BuyActionWindow = ({ options }) => {
       userId: id,
     });
 
-    await axios.post("http://localhost:3000/marginUpdate", {
+    await axios.post(`${BACKEND_URL}/marginUpdate`, {
       userId: id,
       margin: wallet - margin,
     });

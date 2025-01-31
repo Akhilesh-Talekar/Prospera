@@ -5,6 +5,7 @@ import { HomeContext } from "./HomeContext";
 import { BarGraph } from "./BarGraph";
 import { formatCurrency } from "../../constants";
 import { Link } from "react-router-dom";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const Holdings = () => {
   const [holdings, setHoldings] = useState([]);
@@ -22,7 +23,7 @@ const Holdings = () => {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/allHoldings/${id}`).then((res) => {
+    axios.get(`${BACKEND_URL}/allHoldings/${id}`).then((res) => {
       setHoldings(res.data);
     });
   }, [id]);

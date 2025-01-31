@@ -4,6 +4,7 @@ import { sellStyles, quantityStyles } from "../../constants";
 import { GeneralContext } from "./GeneralContext";
 import axios from "axios";
 import { HomeContext } from "./HomeContext";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const BuyActionWindow = ({ options }) => {
   const [values, setValues] = useState({
@@ -18,7 +19,7 @@ const BuyActionWindow = ({ options }) => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:3000/showHoldings`, {
+      .post(`${BACKEND_URL}/showHoldings`, {
         stockId: options.uId,
         userId: id,
       })
@@ -46,7 +47,7 @@ const BuyActionWindow = ({ options }) => {
       }
 
       // First API call
-      await axios.post("http://localhost:3000/sellStock", {
+      await axios.post(`${BACKEND_URL}/sellStock`, {
         uID: options.uId,
         quantityToSell: values.stockQuantity,
         avgCost: values.stockPrice,
@@ -55,7 +56,7 @@ const BuyActionWindow = ({ options }) => {
 
       console.log("First API call successful");
       // Second API call
-      await axios.post("http://localhost:3000/marginUpdate", {
+      await axios.post(`${BACKEND_URL}/marginUpdate`, {
         userId: id,
         margin: wallet + margin,
       });

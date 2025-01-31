@@ -5,8 +5,9 @@ import Dashboard from "./Dashboard";
 import { useCookies } from "react-cookie";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 import { HomeContext } from "./HomeContext";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
+const VITE_FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
 const Home = () => {
   const [cookies, removeCookie] = useCookies([]);
@@ -19,10 +20,10 @@ const Home = () => {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
-        window.location.href = "http://localhost:5173/";
+        window.location.href = `${VITE_FRONTEND_URL}`;
       }
       const { data } = await axios.post(
-        "http://localhost:3000",
+        `${BACKEND_URL}`,
         {},
         { withCredentials: true }
       );
@@ -31,7 +32,7 @@ const Home = () => {
       setUID(id);
       setWallet(wallet);
       localStorage.setItem("id", id);
-      return !status && (removeCookie("token"), (window.location.href = "http://localhost:5173/"))
+      return !status && (removeCookie("token"), (window.location.href = `${VITE_FRONTEND_URL}`));
       
     };
     verifyCookie();
@@ -40,7 +41,7 @@ const Home = () => {
   useEffect(() => {
     if (UID) { // Only fetch holdings if UID is not null
       axios
-        .get(`http://localhost:3000/allHoldings/${UID}`)
+        .get(`${BACKEND_URL}/allHoldings/${UID}`)
         .then((res) => {
           setPersonalHoldings(res.data);
         })
@@ -51,7 +52,7 @@ const Home = () => {
   }, [UID]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/Stockdata").then((res) => {
+    axios.get(`${BACKEND_URL}/api/Stockdata`).then((res) => {
       setWatchlist(res.data);
       localStorage.setItem("watchlist", JSON.stringify(res.data));
     })
@@ -62,7 +63,7 @@ const Home = () => {
     removeCookie("token");
     localStorage.removeItem("id");
     localStorage.removeItem("watchlist");
-    window.location.href = "http://localhost:5173/"
+    window.location.href = `${VITE_FRONTEND_URL}`;
   };
    
   return (

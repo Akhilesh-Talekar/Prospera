@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import axios from "axios";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const VITE_DASHBORD_URL = import.meta.env.VITE_DASHBORD_URL;
 
 const AuthForm = ({ type = "sign-in" }) => {
   const [viewpassword, setViewPassword] = useState(false);
@@ -51,7 +53,7 @@ const AuthForm = ({ type = "sign-in" }) => {
         }
 
         const { data } = await axios.post(
-          "http://localhost:3000/signup",
+          `${BACKEND_URL}/signup`,
           {
             email: email,
             password: password,
@@ -65,14 +67,14 @@ const AuthForm = ({ type = "sign-in" }) => {
         if (success) {
           handleSuccess(message);
           setTimeout(() => {
-            window.location.href = "http://localhost:5174";
+            window.location.href = `${VITE_DASHBORD_URL}`;
           }, 1000);
         } else {
           handleError(message);
         }
       } else {
         const { data } = await axios.post(
-          "http://localhost:3000/signin",
+          `${BACKEND_URL}/signin`,
           {
             email: email,
             password: password,
@@ -84,7 +86,7 @@ const AuthForm = ({ type = "sign-in" }) => {
         if (success) {
           handleSuccess(message);
           setTimeout(() => {
-            window.location.href = "http://localhost:5174";
+            window.location.href = `${VITE_DASHBORD_URL}`;
           }, 1000);
         } else {
           handleError(message);
@@ -99,7 +101,7 @@ const AuthForm = ({ type = "sign-in" }) => {
   };
 
   return (
-    <div style={{ width: "450px" }}>
+    <div className="authBox">
       <Toaster />
       <div
         style={{

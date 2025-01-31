@@ -152,6 +152,13 @@
   height: 110vh;
 }
 
+@media screen and (max-width: 720px) {
+  .resp {
+    height: 90vh;
+    justify-content: start;
+  }
+}
+
 @media screen and (min-width: 1550px) {
   .resp {
     height: 90vh;
@@ -217,3 +224,22 @@
   }
 }
 
+.authBox{
+  width: 450px;
+}
+
+@media (max-width: 720px) {
+  .authBox {
+    width: 350px;
+  }
+}
+
+herobtn{
+  width: 30%;
+}
+
+@media (max-width: 720px) {
+  .herobtn {
+    width: 50%;
+  }
+}

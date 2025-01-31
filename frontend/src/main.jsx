@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import "./index.css";
 import HomePage from "./landing_page/home/HomePage";
 import SignUp from "./landing_page/signup/SignUp";
@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 };
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <HashRouter>
     <Navbar/> 
     <ScrollToTop />
     <Routes>
@@ -40,5 +40,5 @@ createRoot(document.getElementById("root")).render(
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer/>
-  </BrowserRouter>
+  </HashRouter>
 );

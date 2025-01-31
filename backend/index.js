@@ -13,31 +13,23 @@ const cookieParser = require("cookie-parser");
 const UserModel = require("./model/UserModel");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const url = process.env.MONGO_URL;
 
-const allowedOrigins = [
-  "http://localhost:5173", // React app 1
-  "http://localhost:5174", // React app 2
-];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Check if the incoming origin is in the allowedOrigins list
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true); // Allow the request
-      } else {
-        callback(new Error("Not allowed by CORS"), false); // Reject the request
-      }
-    },
-    credentials: true, // Allow credentials like cookies
+    origin: ["https://prosperaa.vercel.app", "https://prosperadashbord.vercel.app"], // Add all frontend URLs explicitly
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
   })
 );
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.json());
-app.use("/", authRoute);
+app.use(`/`, authRoute);
 
 mongoose
   .connect(url)
@@ -50,7 +42,11 @@ app.listen(port, () => {
 
 FINNHUB_API_KEY = process.env.FINNHUB_API_KEY;
 
-app.get("/api/StockData", async (req, res) => {
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.get(`/api/StockData`, async (req, res) => {
   try {
     // List of Indian stock symbols (NSE)
     const symbols = ["AAPL", "TSLA", "MSFT", "AMZN", "GOOGL", "LMT", "NVDA"];
@@ -85,24 +81,24 @@ app.get("/api/StockData", async (req, res) => {
   }
 });
 
-app.get("/allHoldings/:userId", async (req, res) => {
+app.get(`/allHoldings/:userId`, async (req, res) => {
   let { userId } = req.params;
   let allHoldings = await HoldingsModel.find({ userId: userId });
   res.json(allHoldings);
 });
 
-app.get("/allPositions", async (req, res) => {
+app.get(`/allPositions`, async (req, res) => {
   let allPositions = await PositionsModel.find();
   res.json(allPositions);
 });
 
-app.get("/allOrders/:userId", async (req, res) => {
+app.get(`/allOrders/:userId`, async (req, res) => {
   let { userId } = req.params;
   let allOrders = await OrdersModel.find({ userId: userId });
   res.json(allOrders);
 });
 
-app.post("/buyStock", async (req, res) => {
+app.post(`/buyStock`, async (req, res) => {
   let newOrder = new OrdersModel({
     name: req.body.name,
     qty: req.body.qty,
@@ -122,13 +118,13 @@ app.post("/buyStock", async (req, res) => {
   res.send("Order saved");
 });
 
-app.post("/showHoldings", async (req, res) => {
+app.post(`/showHoldings`, async (req, res) => {
   let { stockId, userId } = req.body;
   let holdings = await HoldingsModel.find({ name: stockId, userId: userId });
   res.json(holdings);
 });
 
-app.post("/sellStock", async (req, res) => {
+app.post(`/sellStock`, async (req, res) => {
   const { uID, quantityToSell, avgCost, userId } = req.body;
 
   try {
@@ -176,7 +172,7 @@ app.post("/sellStock", async (req, res) => {
   }
 });
 
-app.post("/marginUpdate", async (req, res) => {
+app.post(`/marginUpdate`, async (req, res) => {
   let { userId, margin } = req.body;
   let update = await UserModel.updateOne(
     { _id: userId },

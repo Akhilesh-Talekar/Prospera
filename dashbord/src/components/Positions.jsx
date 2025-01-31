@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const Positions = () => {
   const [positions, setPositions] = useState([]);
 
   useEffect((res) => {
-    axios.get("http://localhost:3000/allPositions").then((res) => {
+    axios.get(`${BACKEND_URL}/allPositions`).then((res) => {
       setPositions(res.data);
     });
   },[]);
