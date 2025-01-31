@@ -6,5 +6,5 @@ export const HomeContext = createContext({
     id: "",
     wallet: 0,
     perHoldings: [],
-    watchlist: []
+    watchlist: [],
 });

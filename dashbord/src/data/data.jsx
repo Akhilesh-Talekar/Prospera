@@ -1,59 +1,40 @@
 export const watchlist = [
-    {
-      name: "INFY",
-      price: 1555.45,
-      percent: "-1.60%",
-      isDown: true,
-    },
-    {
-      name: "ONGC",
-      price: 116.8,
-      percent: "-0.09%",
-      isDown: true,
-    },
-    {
-      name: "TCS",
-      price: 3194.8,
-      percent: "-0.25%",
-      isDown: true,
-    },
-    {
-      name: "KPITTECH",
-      price: 266.45,
-      percent: "3.54%",
-      isDown: false,
-    },
-    {
-      name: "QUICKHEAL",
-      price: 308.55,
-      percent: "-0.15%",
-      isDown: true,
-    },
-    {
-      name: "WIPRO",
-      price: 577.75,
-      percent: "0.32%",
-      isDown: false,
-    },
-    {
-      name: "M&M",
-      price: 779.8,
-      percent: "-0.01%",
-      isDown: true,
-    },
-    {
-      name: "RELIANCE",
-      price: 2112.4,
-      percent: "1.44%",
-      isDown: false,
-    },
-    {
-      name: "HUL",
-      price: 512.4,
-      percent: "1.04%",
-      isDown: false,
-    },
-  ];
+  {
+    "name": "AAPL",
+    "currentPrice": 237.59,
+    "percentageChange": "-0.74"
+  },
+  {
+    "name": "TSLA",
+    "currentPrice": 400.28,
+    "percentageChange": "2.87"
+  },
+  {
+    "name": "MSFT",
+    "currentPrice": 414.99,
+    "percentageChange": "-6.18"
+  },
+  {
+    "name": "AMZN",
+    "currentPrice": 234.64,
+    "percentageChange": "-1.02"
+  },
+  {
+    "name": "GOOGL",
+    "currentPrice": 200.87,
+    "percentageChange": "2.79"
+  },
+  {
+    "name": "LMT",
+    "currentPrice": 459.65,
+    "percentageChange": "1.16"
+  },
+  {
+    "name": "NVDA",
+    "currentPrice": 124.65,
+    "percentageChange": "0.77"
+  }
+]
   
   // holdings
   // export const holdings = [

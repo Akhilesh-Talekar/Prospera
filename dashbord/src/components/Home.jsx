@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { HomeContext } from "./HomeContext";
+import { watchlist } from "../data/data";
 const BACKEND_URL = import.meta.env.BACKEND_URL;
 const VITE_FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
@@ -15,7 +16,7 @@ const Home = () => {
   const [UID, setUID] = useState(localStorage.getItem("id"));
   const [wallet, setWallet] = useState(0);
   const [personalholdings, setPersonalHoldings] = useState([]);
-  const [watchlist, setWatchlist] = useState(localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : []);
+  // const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     const verifyCookie = async () => {
@@ -51,12 +52,12 @@ const Home = () => {
     }
   }, [UID]);
 
-  useEffect(() => {
-    axios.get(`${BACKEND_URL}/api/Stockdata`).then((res) => {
-      setWatchlist(res.data);
-      localStorage.setItem("watchlist", JSON.stringify(res.data));
-    })
-  },[]);
+  // useEffect(() => {
+  //   axios.get(`${BACKEND_URL}/api/Stockdata`).then((res) => {
+  //     setWatchlist(res.data);
+  //     localStorage.setItem("watchlist", JSON.stringify(res.data));
+  //   })
+  // },[]);
     
 
   const Logout = () => {

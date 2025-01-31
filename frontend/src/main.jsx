@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 };
 
 createRoot(document.getElementById("root")).render(
-  <HashRouter>
+  <BrowserRouter>
     <Navbar/> 
     <ScrollToTop />
     <Routes>
@@ -40,5 +40,5 @@ createRoot(document.getElementById("root")).render(
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer/>
-  </HashRouter>
+  </BrowserRouter>
 );
